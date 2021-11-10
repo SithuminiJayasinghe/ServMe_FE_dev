@@ -1,0 +1,138 @@
+<div class="row">
+  <div class="col-md-6" style="margin-left: 30px;">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span style=" height:45px; width: 50px; background-color:#C798D8; border-radius: 20px 0px 20px 0px; " class="input-group-text"><i style="margin: auto;" class="fa fa-search"></i></span>
+      </div>
+      <input style="height:45px; background-color:#EED8F6; border-radius: 0px 20px 20px 20px;" type="text" id="input1-group1" name="input1-group1" class="form-control" placeholder="Item name / Item category">
+      <!-- <button type="button" class="btn btn-block btn-primary"  (click)="doPOST()">Save</button> -->
+      <!-- <a class="nav-link" href="#/addUser">Users</a> -->
+      
+    </div>
+  </div>
+</div>
+
+<div class="row">
+<div class="col-md-4  mt-4">
+  <div class="input-group">
+    <td>
+      <span class="h4">Sign Up</span>
+    </td>
+  </div>
+</div>
+</div>
+
+<div class="animated fadeIn">
+<div class="row mt-2">
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="form-group">
+              <label for="name mt-2">Name : </label>
+                <input [(ngModel)]="addUser.name" type="text" class="form-control" id="ccnumber" placeholder="Name">
+            </div>
+          </div>
+        </div>
+        <!--/.row-->
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="form-group">
+              <label for="ccnumber">Email :</label>
+              <input [(ngModel)]="addUser.email" type="text" class="form-control" id="ccnumber" placeholder="Email">
+            </div>
+          </div>
+        </div>
+        <!--/.row-->
+        <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label for="ccnumber">Address :</label>
+                <input [(ngModel)]="addUser.address" type="text" class="form-control" id="ccnumber" placeholder="Address">
+              </div>
+            </div>
+          </div>
+        <!--/.row-->
+        <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label for="ccnumber">NIC :</label>
+                <input [(ngModel)]="addUser.nic" type="text" class="form-control" id="ccnumber" placeholder="Address">
+              </div>
+            </div>
+          </div>
+        <!--/.row-->
+        <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label for="ccnumber">GENDER :</label>
+                <!-- <input [(ngModel)]="addUser.gender" type="text" class="form-control" id="ccnumber" placeholder="Address"> -->
+                <select  [(ngModel)]="addUser.gender" id="select3" name="select3" class="form-control form-control-sm">
+                    <option value="0">Please select</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                  </select>
+              </div>
+            </div>
+          </div>
+        <!--/.row-->
+        <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label for="ccnumber">DOB :</label>
+                <input [(ngModel)]="addUser.dob" class="form-control" id="date-input" type="date" name="date-input" placeholder="date">
+                <!-- <input [(ngModel)]="addUser.dob" type="text" class="form-control" id="ccnumber" placeholder="Contact No"> -->
+              </div>
+            </div>
+          </div>
+        <!--/.row-->
+        <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label for="ccnumber">Contact No :</label>
+                <input [(ngModel)]="addUser.contact_number" type="text" class="form-control" id="ccnumber" placeholder="Contact No">
+              </div>
+            </div>
+          </div>
+        <!--/.row-->
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="form-group">
+              <label for="ccnumber">New Password :</label>
+              <input [(ngModel)]="addUser.password" type="text" class="form-control" id="ccnumber" placeholder="New Password">
+            </div>
+          </div>
+        </div>
+        <!--/.row-->
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="form-group">
+              <label for="ccnumber">Re-New Password :</label>
+              <input type="text" class="form-control" id="ccnumber" placeholder="Re-New Password">
+            </div>
+          </div>
+        </div>
+        <!--/.row-->
+        <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+          <button type="button" class="btn btn-block btn-primary" (click)="doPOST()">Create</button>
+        </div>
+<!--/.row-->
+        <div class="row"  *ngIf="showMsg">
+   
+          <div  class="alert alert-success alert-dismissible">
+            <a (click)="closeAlert()"  class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong 
+            onclick="document.location.href='http://localhost:4200/#/dashboard'" >Registration Success! Please click here to login!.</strong>  
+          </div>
+          
+        </div>
+<!--/.row-->
+      </div>
+    </div>
+  </div>
+  <!--/.col-->
+</div>
+<!--/.row-->
+
+</div>

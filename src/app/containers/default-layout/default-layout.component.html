@@ -1,0 +1,37 @@
+
+
+<!-- ***App Background -->
+<div class="app-body" [ngStyle]="{'background-color': 'white'}">
+  <app-sidebar #appSidebar [fixed]="true" [display]="'lg'" [minimized]="sidebarMinimized" (minimizedChange)="toggleMinimize($event)">
+    <app-sidebar-nav [navItems]="navItems" [perfectScrollbar] [disabled]="appSidebar.minimized"></app-sidebar-nav>
+    <app-sidebar-minimizer></app-sidebar-minimizer>
+  </app-sidebar>
+   <!--Main content-->
+   <main class="main ">
+    <ol class="breadcrumb mt-8">
+      <div onclick="location.href='http://localhost:4200/#';">
+      <h1 class="ml-12 " href="http://localhost:4200/#" style="font-size: 50px; margin-left: 30px; margin-top: 25px; margin-bottom: 25px;"><b>SERV ME</b></h1>
+    </div>
+      <li class="breadcrumb-menu d-md-down-none" style=" margin-top: 35px;">
+        <div class="btn-group mt-8" role="group" aria-label="Button group with nested dropdown">
+          <!-- {{detail.user_id}}
+          <div class="row" *ngIf="detail.user_id == 1">
+            No Result
+          </div> -->
+          <a  *ngIf="detail.user_id != 0" class="btn" style="color:rgb(128, 14, 143)" href="http://localhost:4200/#/profile"><i class="fa fa-user fa-lg " style="font-size: 44px; margin-right: 23px;"></i><p style="margin-top: 5px;  margin-right: 23px;">Profile</p></a>
+          <a class="btn" style=" color:#ffbf00" href="http://localhost:4200/#/offersView"><i class="fa fa-gift fa-lg " style="font-size: 46px; margin-right: 13px;"></i><p style="margin-top: 5px; margin-right: 13px;">Offers</p></a>
+          <a class="btn" style="color:green" href="http://localhost:4200/#/postJob"> <i class="fa fa-send fa-lg" style="font-size: 38px;"></i><p style="margin-top: 10px;">Post Job</p></a>
+          <a class="btn" style="color:red" href="http://localhost:4200/#/addShop"><i class="fa fa-home fa-lg " style="font-size: 44px;"></i><p style="margin-top: 5px;">Add Shop</p></a>
+        </div>
+
+      </li>
+    </ol>
+    <div class="container-fluid">
+      <router-outlet></router-outlet>
+    </div>
+  </main>
+
+</div>
+<app-footer>
+  <span class="ml-auto">Powered by <a href="">ServMe</a></span>
+</app-footer>

@@ -1,0 +1,28 @@
+<div class="animated fadeIn">
+
+
+  <agm-map [latitude]="lat" [longitude]="lng">
+
+
+  <agm-marker *ngFor="let a of totalAngularPackages.result; let index = index"
+   
+    [label]="a.name"
+    [latitude]="a.latitude"
+    [longitude]="a.longitude"
+  ></agm-marker>
+
+  <agm-marker [latitude]="lat" [longitude]="lng" [label]="title"
+  ></agm-marker>
+
+  <agm-circle [latitude]="lat" [longitude]="lng" 
+  [radius]= "10000"
+  [fillColor]="'red'"
+  [circleDraggable]="true"
+  [editable]="true"
+  [fillOpacity]="0.3">
+</agm-circle>
+      
+     
+    </agm-map>
+</div>
+

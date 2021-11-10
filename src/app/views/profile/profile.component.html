@@ -1,0 +1,361 @@
+<div class="row">
+  <div class="col-md-6" style="margin-left: 30px;">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span style=" height:45px; width: 50px; background-color:#C798D8; border-radius: 20px 0px 20px 0px; " class="input-group-text">
+          <i style="margin: auto;" class="fa fa-search"></i>
+        </span>
+      </div>
+      <input style="height:45px; background-color:#EED8F6; border-radius: 0px 20px 20px 20px;" type="text" id="input1-group1" name="input1-group1"
+        class="form-control" placeholder="Item name / Item category">
+      <!-- <button type="button" class="btn btn-block btn-primary"  (click)="doPOST()">Save</button> -->
+      <!-- <a class="nav-link" href="#/addUser">Users</a> -->
+
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-8  mt-4">
+    <div class="mt-4">
+      <h3 class="ml-8" style="font-size: 30px; margin-left: 30px;">
+        <b>My Profile</b> 
+        <button 
+        (click)="doLogoutClick()"
+        id="myButton" style="margin-left: 20px; border-radius: 50px; width: 150px;" class="btn btn-primary" >Logout</button>
+       
+      </h3>
+      <hr class="mt-0" style="height:3px; border-width:0; color:#e6e6e6; background-color:#e6e6e6; margin-left: 30px;">
+    </div>
+  </div>
+</div>
+
+<div class="animated fadeIn">
+
+  <div class="row mt-2" style="margin-left: 30px;">
+    <div class="col-sm-3">
+
+      <div class="row">
+        <!-- <div class="col-sm-12"> -->
+        <img src={{userDetail.result[0].profile_pic}} class="" alt="..." width="150" height="200" style=" border-radius: 5px; margin-left: 20px;"
+        />
+        <!-- </div> -->
+      </div>
+
+
+      <div class="card" style="margin-top: 20px; background:#f5e8fa; border-radius: 10px;">
+        <div class="card-body">
+
+          <!--/.row-->
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label for="ccnumber">
+                  <b>Name</b>
+                </label>
+                <input [(ngModel)]="userDetail.result[0].name" type="text" class="form-control" id="ccnumber" placeholder="Name">
+
+              </div>
+            </div>
+          </div>
+          <!--/.row-->
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label for="ccnumber">
+                  <b>Address</b>
+                </label>
+                <input [(ngModel)]="userDetail.result[0].address" type="text" class="form-control" id="ccnumber" placeholder="Address">
+
+              </div>
+            </div>
+          </div>
+          <!--/.row-->
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label for="ccnumber">
+                  <b>NIC</b>
+                </label>
+                <input [(ngModel)]="userDetail.result[0].nic" type="text" class="form-control" id="ccnumber" placeholder="NIC">
+
+              </div>
+            </div>
+          </div>
+          <!--/.row-->
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label for="ccnumber">
+                  <b>Mobile</b>
+                </label>
+                <input [(ngModel)]="userDetail.result[0].mobile_1" type="text" class="form-control" id="ccnumber" placeholder="Mobile 1">
+                <input [(ngModel)]="userDetail.result[0].mobile_2" type="text" class="form-control" id="ccnumber" placeholder="Mobile 2">
+
+              </div>
+            </div>
+          </div>
+          <!--/.row-->
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label for="ccnumber">
+                  <b>WhatsApp</b>
+                </label>
+                <input [(ngModel)]="userDetail.result[0].user_whatsapp" type="text" class="form-control" id="ccnumber" placeholder="WhatsApp">
+
+              </div>
+            </div>
+          </div>
+          <!--/.row-->   
+     
+          <!--/.row-->   
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label for="ccnumber">
+                  <b>Facebookp</b>
+                </label>
+                <input [(ngModel)]="userDetail.result[0].user_facebook" type="text" class="form-control" id="ccnumber" placeholder="Facebook">
+
+              </div>
+            </div>
+          </div>
+          <!--/.row-->   
+
+          <!--/.row-->
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label for="ccnumber">
+                  <b>Email</b>
+                </label>
+                <input [(ngModel)]="userDetail.result[0].email" type="text" class="form-control" id="ccnumber" placeholder="Email">
+
+              </div>
+            </div>
+          </div>
+          <!--/.row-->
+        </div>
+      </div>
+    </div>
+    <!--/.col-->
+    <div class="col-sm-9">
+      <div class="">
+        <div class="card-body">
+
+          <div class="">
+          <div class="row">
+            <div class="col-md-8 ">
+              <!-- <div class="mt-4"> -->
+              <h3 class="ml-8" style="font-size: 20px; margin-left: 20px;">
+                <b>My Jobs</b>
+              </h3>
+              <hr class="mt-0" style="height:3px; border-width:0; color:#e6e6e6; background-color:#e6e6e6; margin-left: 20px;">
+              <!-- </div> -->
+            </div>
+          </div>
+
+          <!-- ********************** -->
+
+          <div class="row row-cols-1 row-cols-md-3 g-4" style=" margin-bottom: 25px;">
+
+            <!-- ********************** -->
+            <div class="row" *ngIf="totalAngularPackages.result?.length > 0">
+
+              <div *ngFor="let a of totalAngularPackages.result; let index = index" class="col-md-4">
+                <a href="http://localhost:4200/#/itemCardView?id={{totalAngularPackages.result[index].id}}">
+                  <div class="card .bg-secondary" style="background:#fbf8ff; width: 80%; margin: auto; border-radius: 20px; margin-bottom: 45px;">
+                    <img src={{totalAngularPackages.result[index].image_1}} class="card-img-top" alt="..." width="100" height="200" style=" border-radius: 15px 15px 0px 0px;"
+                    />
+                    <div class="ml-2 mt-2">
+                      <h4 class="ml-0 mb-2">
+                        <b>{{totalAngularPackages.result[index].name}}</b>
+                      </h4>
+                      <h6 class="ml-2 " style="color:gray; margin-top:2px; font-size: 16px;"> {{totalAngularPackages.result[index].showroom_name}} - {{totalAngularPackages.result[index].city_name}}
+                        <i style="color:green" class="fa fa-map-marker fa-lg"></i>
+                      </h6>
+                      <h5 class="mt-4 ml-2 mb-3" style="color:#cc0000">
+                        <b>Rs: {{totalAngularPackages.result[index].price}}</b>
+                      </h5>
+                    </div>
+                  </div>
+                </a>
+              </div>
+
+            <!-- </div> -->
+            <!-- ********************** -->
+            <div class="row" *ngIf="totalAngularPackages.result?.length == 0">
+              No Result
+            </div>
+            <!-- ********************** -->
+            <!-- <div style="margin-left: 50%;  margin-bottom: 20px;">
+                <button type="button" class="btn btn-block btn-primary" (click)="doPOST()">Show All</button>
+              </div> -->
+            <!-- ********************** -->
+          </div>
+          </div>
+
+          <!-- ********************** -->
+          <div class="">
+          <div class="row">
+              <div class="col-md-8 ">
+                <!-- <div class="mt-4"> -->
+                <h3 class="ml-8" style="font-size: 20px; margin-left: 20px;">
+                  <b>My Shops</b>
+                </h3>
+                <hr class="mt-0" style="height:3px; border-width:0; color:#e6e6e6; background-color:#e6e6e6; margin-left: 20px;">
+                <!-- </div> -->
+              </div>
+            </div>
+  
+            <!-- ********************** -->
+  
+            <div class="row row-cols-1 row-cols-md-3 g-4" style=" margin-bottom: 25px;">
+  
+              <!-- ********************** -->
+              <div class="row" *ngIf="shopList.result?.length > 0">
+  
+                <div *ngFor="let a of shopList.result; let index = index" class="col-md-4">
+                  <a href="http://localhost:4200/#/itemCardView?id={{shopList.result[index].id}}">
+                    <div class="card .bg-secondary" style="background:#fbf8ff; width: 80%; margin: auto; border-radius: 20px; margin-bottom: 45px;">
+                      <img src={{shopList.result[index].banner_image}} class="card-img-top" alt="..." width="100" height="200" style=" border-radius: 15px 15px 0px 0px;"
+                      />
+                      <div class="ml-2 mt-2">
+                        <h4 class="ml-0 mb-2">
+                          <b>{{shopList.result[index].name}}</b>
+                        </h4>
+                        <h6 class="ml-2 " style="color:gray; margin-top:2px; font-size: 16px;"> {{shopList.result[index].showroom_name}} - {{totalAngularPackages.result[index].city_name}}
+                          <i style="color:green" class="fa fa-map-marker fa-lg"></i>
+                        </h6>
+                        
+                      </div>
+                    </div>
+                  </a>
+                </div>
+  
+              </div>
+              <!-- ********************** -->
+              <div class="row" *ngIf="totalAngularPackages.result?.length == 0">
+                No Result
+              </div>
+              <!-- ********************** -->
+               <!-- ********************** -->
+            <!-- <div style="margin-left: 50%;  margin-bottom: 20px;">
+                <button type="button" class="btn btn-block btn-primary" (click)="doPOST()">Show All</button>
+              </div> -->
+              <!-- ********************** -->
+            </div>
+            </div>
+          <!-- ********************** -->
+<!-- 
+          <div class="row">
+              <div class="col-md-8 ">
+                <h3 class="ml-8" style="font-size: 20px; margin-left: 30px;">
+                  <b>My Wishlist</b>
+                </h3>
+                <hr class="mt-0" style="height:3px; border-width:0; color:#e6e6e6; background-color:#e6e6e6; margin-left: 30px;">
+              </div>
+            </div> -->
+  
+            <!-- ********************** -->
+  
+            <!-- <div class="row row-cols-1 row-cols-md-3 g-4" style=" margin-bottom: 25px;">
+  
+              <div class="row" *ngIf="totalAngularPackages.result?.length > 0">
+  
+                <div *ngFor="let a of totalAngularPackages.result; let index = index" class="col-md-4">
+                  <a href="http://localhost:4200/#/itemCardView?id={{totalAngularPackages.result[index].id}}">
+                    <div class="card .bg-secondary" style="background:#fbf8ff; width: 80%; margin: auto; border-radius: 20px; margin-bottom: 45px;">
+                      <img src={{totalAngularPackages.result[index].image_1}} class="card-img-top" alt="..." width="100" height="200" style=" border-radius: 15px 15px 0px 0px;"
+                      />
+                      <div class="ml-2 mt-2">
+                        <h4 class="ml-0 mb-2">
+                          <b>{{totalAngularPackages.result[index].name}}</b>
+                        </h4>
+                        <h6 class="ml-2 " style="color:gray; margin-top:2px; font-size: 16px;"> {{totalAngularPackages.result[index].showroom_name}} - {{totalAngularPackages.result[index].city_name}}
+                          <i style="color:green" class="fa fa-map-marker fa-lg"></i>
+                        </h6>
+                        <h5 class="mt-4 ml-2 mb-3" style="color:#cc0000">
+                          <b>Rs: {{totalAngularPackages.result[index].price}}</b>
+                        </h5>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+  
+              </div>
+            
+              <div class="row" *ngIf="totalAngularPackages.result?.length == 0">
+                No Result
+              </div>
+            <div style="margin-left: 50%;  margin-bottom: 20px;">
+                <button type="button" class="btn btn-block btn-primary" (click)="doPOST()">Show All</button>
+              </div>
+            </div> -->
+          <!-- ********************** -->
+          <!-- ********************** -->
+
+            <!-- ********************** -->
+            <div class="">
+            <div class="row">
+              <div class="col-md-8 ">
+                <!-- <div class="mt-4"> -->
+                <h3 class="ml-8" style="font-size: 20px; margin-left: 20px;">
+                  <b>My Wishlist</b>
+                </h3>
+                <hr class="mt-0" style="height:3px; border-width:0; color:#e6e6e6; background-color:#e6e6e6; margin-left: 20px;">
+                <!-- </div> -->
+              </div>
+            </div>
+  
+            <!-- ********************** -->
+  
+            <div class="row row-cols-1 row-cols-md-3 g-4" style=" margin-bottom: 25px;">
+  
+              <!-- ********************** -->
+              <div class="row" *ngIf="Wishlist.result?.length > 0">
+  
+                <div *ngFor="let a of Wishlist.result; let index = index" class="col-md-4">
+                  <a href="http://localhost:4200/#/itemCardView?id={{Wishlist.result[index].id}}">
+                    <div class="card .bg-secondary" style="background:#fbf8ff; width: 80%; margin: auto; border-radius: 20px; margin-bottom: 45px;">
+                      <img src={{Wishlist.result[index].image_1}} class="card-img-top" alt="..." width="100" height="200" style=" border-radius: 15px 15px 0px 0px;"
+                      />
+                      <div class="ml-2 mt-2">
+                        <h4 class="ml-0 mb-2">
+                          <b>{{Wishlist.result[index].name}}</b>
+                        </h4>
+                        <h6 class="ml-2 " style="color:gray; margin-top:2px; font-size: 16px;"> {{Wishlist.result[index].showroom_name}} - {{totalAngularPackages.result[index].city_name}}
+                          <i style="color:green" class="fa fa-map-marker fa-lg"></i>
+                        </h6>
+                        
+                      </div>
+                    </div>
+                  </a>
+                </div>
+  
+              </div>
+              <!-- ********************** -->
+              <div class="row" *ngIf="totalAngularPackages.result?.length == 0">
+                No Result
+              </div>
+              <!-- ********************** -->
+               <!-- ********************** -->
+            <!-- <div style="margin-left: 50%;  margin-bottom: 20px;">
+                <button type="button" class="btn btn-block btn-primary" (click)="doPOST()">Show All</button>
+              </div> -->
+              <!-- ********************** -->
+            </div>
+            </div>
+          <!-- ********************** -->
+
+        </div>
+      </div>
+    </div>
+    <!--/.col-->
+ 
+    <!--/.col-->
+  </div>
+  <!--/.row-->
+
+</div>

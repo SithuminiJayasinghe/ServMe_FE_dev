@@ -1,0 +1,393 @@
+<div class="row">
+  <div class="col-md-6" style="margin-left: 30px;">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span style=" height:45px; width: 50px; background-color:#C798D8; border-radius: 20px 0px 20px 0px; " class="input-group-text">
+          <i style="margin: auto;" class="fa fa-search"></i>
+        </span>
+      </div>
+      <input style="height:45px; background-color:#EED8F6; border-radius: 0px 20px 20px 20px;" type="text" id="input1-group1" name="input1-group1"
+        class="form-control" placeholder="Item name / Item category">
+      <!-- <button type="button" class="btn btn-block btn-primary"  (click)="doPOST()">Save</button> -->
+      <!-- <a class="nav-link" href="#/addUser">Users</a> -->
+
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-8  mt-4">
+    <div class="mt-4">
+      <h3 class="ml-8" style="font-size: 30px; margin-left: 30px;">
+        <b>Post Job</b>
+      </h3>
+      <hr class="mt-0" style="height:3px; border-width:0; color:#e6e6e6; background-color:#e6e6e6; margin-left: 30px;">
+    </div>
+  </div>
+</div>
+
+<div class="animated fadeIn">
+  <div class="row mt-2" style="margin-left: 30px;">
+    <div class="col-sm-3">
+      <div class="card" style="margin-top: 20px; background:#f5e8fa; border-radius: 10px;">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <span class="h4">Job details</span>
+                <br>
+                <label for="ccnumber">Type :</label>
+                <select [(ngModel)]="postJob.type" id="select1" name="select1" class="form-control form-control-sm">
+                  <option value="0">Please select</option>
+                  <option value="1">Item</option>
+                  <option value="2">Service</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <!--/.row-->
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label for="name mt-2">Item Name : </label>
+                <input [(ngModel)]="postJob.name" type="text" class="form-control" id="ccnumber" placeholder="Item Name">
+              </div>
+            </div>
+          </div>
+          <!--/.row-->
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label for="ccnumber">Category:</label>
+                <div class="col-md-9 mt-2">
+                  <select [(ngModel)]="postJob.category_id" id="select3" name="select3" class="form-control form-control-sm" ng-model="categoryList"
+                    (change)="setCategory()">
+                    <option *ngFor="let i of categoryList.result" value={{i.category_id}}>{{i.name}}</option>
+                    <option value="0">Please select</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--/.row-->
+          <!--/.row-->
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label for="ccnumber">Shop Name :</label>
+                <div class="col-md-9 mt-2">
+                  <select [(ngModel)]="postJob.showroom_id" id="select3" name="select3" class="form-control form-control-sm" ng-model="cityList"
+                    (change)="doSetShopName()">
+                    <option *ngFor="let i of shopDetailList.result" value={{i.id}}>{{i.name}}</option>
+                    <option value="0">Please select</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--/.row-->
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label for="ccnumber">Address :</label>
+                <input [(ngModel)]="postJob.address" type="text" class="form-control" id="ccnumber" placeholder="Address">
+
+              </div>
+            </div>
+          </div>
+          <!--/.row-->
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label for="ccnumber">District :</label>
+                <div class="col-md-9">
+                  <select id="select3" [(ngModel)]="postJob.district_id" name="select3" class="form-control form-control-sm" ng-model="districtList"
+                    (change)="doGETcityListByDistrictId()">
+
+                    <option *ngFor="let i of districtList.result" value={{i.district_id}}>{{i.name}}</option>
+                    <option value="0">Please select</option>
+
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--/.row-->
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label for="ccnumber">City :</label>
+                <div class="col-md-9 mt-2">
+                  <select [(ngModel)]="postJob.city_id" id="select3" name="select3" class="form-control form-control-sm" ng-model="cityList"
+                    (change)="setCity()">
+                    <option *ngFor="let i of cityList.result" value={{i.city_id}}>{{i.name}}</option>
+                    <option value="0">Please select</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--/.row-->
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label for="ccnumber">Map Location</label>
+                <input [(ngModel)]="postJob.longitude" type="text" class="form-control" id="ccnumber" placeholder="URL">
+                <!-- <input [(ngModel)]="postJob.latitude" type="text" class="form-control" id="ccnumber" placeholder="Latitude"> -->
+
+              </div>
+            </div>
+          </div>
+          <!--/.row-->
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label for="ccnumber">Price :</label>
+                <input [(ngModel)]="postJob.price" type="number" class="form-control" id="ccnumber" placeholder="Price">
+              </div>
+            </div>
+          </div>
+          <!--/.row-->
+          <!--/.row-->
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label for="ccnumber">Offer Price :</label>
+                <input [(ngModel)]="postJob.discount_price" type="number" class="form-control" id="ccnumber" placeholder="Offer Price">
+              </div>
+            </div>
+          </div>
+          <!--/.row-->
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label for="ccnumber">Mobile :</label>
+                <input [(ngModel)]="postJob.mobile_1" type="text" class="form-control" id="ccnumber" placeholder="Mobile No 1">
+                <input [(ngModel)]="postJob.mobile_2" type="text" class="form-control" id="ccnumber" placeholder="Mobile No 2">
+              </div>
+            </div>
+          </div>
+          <!--/.row-->
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label for="ccnumber">Description :</label>
+                <input [(ngModel)]="postJob.description" type="text" class="form-control" id="ccnumber" placeholder="Description">
+
+              </div>
+            </div>
+          </div>
+          <!--/.row-->
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label for="ccnumber">Email :</label>
+                <input [(ngModel)]="postJob.email" type="text" class="form-control" id="ccnumber" placeholder="Email">
+
+              </div>
+            </div>
+          </div>
+          <!--/.row-->
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label for="ccnumber">WhatsAPP :</label>
+                <input [(ngModel)]="postJob.whatsapp" type="text" class="form-control" id="ccnumber" placeholder="WhatsAPP">
+
+              </div>
+            </div>
+          </div>
+          <!--/.row-->
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label for="ccnumber">Facebook Link :</label>
+                <input [(ngModel)]="postJob.facebook" type="text" class="form-control" id="ccnumber" placeholder="Facebook Link">
+
+              </div>
+            </div>
+          </div>
+          <!--/.row-->
+          <!-- <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+            <button type="button" class="btn btn-block btn-primary" (click)="doPOST()">SAVE</button>
+          </div> -->
+        </div>
+      </div>
+      <!-- ***************************************// -->
+
+    </div>
+    <!--/.col-->
+    <div class="col-sm-9">
+      <!-- <div class=""> -->
+      <div class="card-body">
+
+        <!-- ********************** -->
+
+        <div class="row" style="margin-bottom: 10px;">
+          <div class="col-md-4  mt-4">
+          </div>
+          <div class="col-md-4  mt-4">
+            <div class="input-group">
+              <td>
+                <span class="h4" style="margin-left: 70px;">Card Preview</span>
+              </td>
+            </div>
+          </div>
+          <div class="col-md-4  mt-4">
+          </div>
+        </div>
+        <div class="row row-cols-1 row-cols-md-3 g-4" style="margin-bottom: 40px;">
+          <div class="col">
+          </div>
+          <div class="col">
+            <div class="card .bg-secondary " style="background:#fbf8ff; width: 80%; margin: auto; border-radius: 20px;">
+              <img src={{postJob.image_1}} class="card-img-top" alt="..." width="100" height="200"
+                style=" border-radius: 15px 15px 0px 0px;" />
+              <div class="ml-2 mt-2">
+                <h4 class="ml-0 mb-2">
+                  <b>{{postJob.name}}</b>
+                </h4>
+                <h6 class="ml-2 " style="color:gray; margin-top:2px; font-size: 16px;">
+                  {{postJob.showroom_name}} - {{postJob.city_name}}
+                  <i style="color:green" class="fa fa-map-marker fa-lg"></i>
+                </h6>
+                <h5 class="mt-4 ml-2 mb-3" style="color:#cc0000">
+                  <b>Rs: {{postJob.price}}</b>
+                </h5>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+          </div>
+        </div>
+
+
+        <!-- ********************** -->
+
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+          <div class="col-md-3">
+            <div class="card" style="background:#fbf8ff; margin: auto; border-radius: 20px; margin-bottom: 25px;">
+              <h5 class="card-title" style="margin: auto; margin-top: 10px; margin-bottom: 10px;">Card Display Image</h5>
+              <img src={{postJob.image_1}} class="card-img-top" alt="..." width="100" height="200" style=" " />
+              <div>
+                <input style="margin-left: 5px; margin-top: 15px; margin-bottom: 15px;" [(ngModel)]="postJob.image_1" type="file" id="file-input"
+                  name="file-input"
+                   (change)="handleFileInput($event)"
+                   >
+
+                   <!-- <button type="button" class="btn btn-block btn-primary" (click)="handleFileInput()">SAVE</button> -->
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card" style="background:#fbf8ff; margin: auto; border-radius: 20px; margin-bottom: 25px;">
+              <h5 class="card-title" style="margin: auto; margin-top: 10px; margin-bottom: 10px;">Image 01</h5>
+              <img src={{postJob.image_2}} class="card-img-top" alt="..." width="100" height="200" style=" " />
+              <div>
+                <input style="margin-left: 5px; margin-top: 15px; margin-bottom: 15px;" [(ngModel)]="postJob.image_2" type="file" id="file-input"
+                  name="file-input"
+                  (change)="handleFileInput1($event)">
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card" style="background:#fbf8ff; margin: auto; border-radius: 20px; margin-bottom: 25px;">
+              <h5 class="card-title" style="margin: auto; margin-top: 10px; margin-bottom: 10px;">Image 02</h5>
+              <img src={{postJob.image_3}} class="card-img-top" alt="..." width="100" height="200" style=" " />
+              <div>
+                <input style="margin-left: 5px; margin-top: 15px; margin-bottom: 15px;" [(ngModel)]="postJob.image_3" type="file" id="file-input"
+                  name="file-input"
+                  (change)="handleFileInput2($event)">
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card" style="background:#fbf8ff; margin: auto; border-radius: 20px; margin-bottom: 25px;">
+              <h5 class="card-title" style="margin: auto; margin-top: 10px; margin-bottom: 10px;">Image 03</h5>
+              <img src={{postJob.image_4}} class="card-img-top" alt="..." width="100" height="200" style=" " />
+              <div>
+                <input style="margin-left: 5px; margin-top: 15px; margin-bottom: 15px;" [(ngModel)]="postJob.image_4" type="file" id="file-input"
+                  name="file-input"
+                  (change)="handleFileInput3($event)">
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- ********************** -->
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+          <div class="col-md-3">
+            <div class="card" style="background:#fbf8ff; margin: auto; border-radius: 20px; margin-bottom: 25px;">
+              <h5 class="card-title" style="margin: auto; margin-top: 10px; margin-bottom: 10px;">Image 04</h5>
+              <img src={{postJob.image_5}} class="card-img-top" alt="..." width="100" height="200" style=" " />
+              <div>
+                <input style="margin-left: 5px; margin-top: 15px; margin-bottom: 15px;" [(ngModel)]="postJob.image_5" type="file" id="file-input"
+                  name="file-input"
+                  (change)="handleFileInput4($event)">
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card" style="background:#fbf8ff; margin: auto; border-radius: 20px; margin-bottom: 25px;">
+              <h5 class="card-title" style="margin: auto; margin-top: 10px; margin-bottom: 10px;">Image 05</h5>
+              <img src={{postJob.image_6}} class="card-img-top" alt="..." width="100" height="200" style=" " />
+              <div>
+                <input style="margin-left: 5px; margin-top: 15px; margin-bottom: 15px;" [(ngModel)]="postJob.image_6" type="file" id="file-input"
+                  name="file-input"
+                  (change)="handleFileInput5($event)" >
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card" style="background:#fbf8ff; margin: auto; border-radius: 20px; margin-bottom: 25px;">
+              <h5 class="card-title" style="margin: auto; margin-top: 10px; margin-bottom: 10px;">Image 06</h5>
+              <img src={{postJob.image_7}} class="card-img-top" alt="..." width="100" height="200" style=" " />
+              <div>
+                <input style="margin-left: 5px; margin-top: 15px; margin-bottom: 15px;" [(ngModel)]="postJob.image_7" type="file" id="file-input"
+                  name="file-input"
+                  (change)="handleFileInput6($event)">
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card" style="background:#fbf8ff; margin: auto; border-radius: 20px; margin-bottom: 25px;">
+              <h5 class="card-title" style="margin: auto; margin-top: 10px; margin-bottom: 10px;">Image 07</h5>
+              <img src={{postJob.image_8}} class="card-img-top" alt="..." width="100" height="200" style=" " />
+              <div>
+                <input style="margin-left: 5px; margin-top: 15px; margin-bottom: 15px;" [(ngModel)]="postJob.image_8" type="file" id="file-input"
+                  name="file-input"
+                  (change)="handleFileInput7($event)">
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- ********************** -->
+
+      </div>
+      <!-- </div> -->
+    </div>
+
+    <div class="card-body">
+      <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+        <button type="button" class="btn btn-block btn-primary" (click)="doPOST()">SAVE</button>
+      </div>
+    </div>
+    <!--/.col-->
+  
+    
+    <!--/.col-->
+
+  </div>
+  
+  <!--/.row-->
+    
+  <div class="row"  *ngIf="showMsg">
+   
+    <div  class="alert alert-success alert-dismissible">
+      <a (click)="closeAlert()"  class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      <strong  >Job added Successfully!.</strong>  
+    </div>
+    
+  </div>
+  <!--/.row-->
+
+</div>

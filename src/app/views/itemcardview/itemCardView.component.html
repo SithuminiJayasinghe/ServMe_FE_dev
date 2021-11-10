@@ -1,0 +1,714 @@
+<div class="row">
+  <div class="col-md-6" style="margin-left: 30px">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span
+          style="
+            height: 45px;
+            width: 50px;
+            background-color: #c798d8;
+            border-radius: 20px 0px 20px 0px;
+          "
+          class="input-group-text"
+        >
+          <i style="margin: auto" class="fa fa-search"></i>
+        </span>
+      </div>
+      <input
+        style="
+          height: 45px;
+          background-color: #eed8f6;
+          border-radius: 0px 20px 20px 20px;
+        "
+        type="text"
+        id="input1-group1"
+        name="input1-group1"
+        class="form-control"
+        placeholder="Item name / Item category"
+      />
+      <!-- <button type="button" class="btn btn-block btn-primary"  (click)="doPOST()">Save</button> -->
+      <!-- <a class="nav-link" href="#/addUser">Users</a> -->
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-8 mt-4">
+    <div class="mt-4">
+      <h3 class="ml-8" style="font-size: 30px; margin-left: 30px">
+        <b>Item View</b>
+      </h3>
+      <hr
+        class="mt-0"
+        style="
+          height: 3px;
+          border-width: 0;
+          color: #e6e6e6;
+          background-color: #e6e6e6;
+          margin-left: 30px;
+        "
+      />
+    </div>
+  </div>
+</div>
+
+<div class="animated fadeIn">
+  <div class="row mt-2" style="margin-left: 30px">
+    <!-- <div class="col-sm-3"> -->
+    <!-- <div class="card " style="margin-top: 20px; background:#f5e8fa; border-radius: 10px;"> -->
+    <!-- <div class="card-body"> -->
+    <!-- <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label for="name">Location</label>
+                <div class="col-md-9">
+                  <select id="select3" name="select3" class="form-control form-control-sm">
+                    <option value="0">Please select</option>
+                    <option value="1">Colombo</option>
+                    <option value="2">Kaluthara</option>
+                    <option value="3">Galle</option>
+                  </select>
+                </div>
+                <div class="col-md-9 mt-2">
+                  <select id="select3" name="select3" class="form-control form-control-sm">
+                    <option value="0">Please select</option>
+                    <option value="1">Moratuwa</option>
+                    <option value="2">Nugegoda</option>
+                    <option value="3">Maharagama</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div> -->
+    <!--/.row-->
+    <!-- <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label for="ccnumber">Distance Range</label>
+                <input type="text" class="form-control" id="ccnumber" placeholder="">
+
+              </div>
+            </div>
+          </div> -->
+    <!--/.row-->
+    <!-- <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label for="ccnumber">Map Location</label>
+                <input type="text" class="form-control" id="ccnumber" placeholder="">
+
+              </div>
+            </div>
+          </div> -->
+    <!--/.row-->
+    <!-- <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label for="ccnumber">Category</label>
+                <input type="text" class="form-control" id="ccnumber" placeholder="">
+
+              </div>
+            </div>
+          </div> -->
+    <!--/.row-->
+    <!-- <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label for="ccnumber">Price</label>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <input type="text" class="form-control" placeholder="Min">
+                  </div>
+                  <div class="col-md-6">
+                    <input type="text" class="form-control" placeholder="Max">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> -->
+    <!--/.row-->
+    <!-- <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label for="ccnumber">Date Range</label>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <input class="form-control" id="date-input" type="date" name="date-input" placeholder="date">
+                  </div>
+                  <div class="col-md-6">
+                    <input class="form-control" id="date-input" type="date" name="date-input" placeholder="date">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> -->
+    <!--/.row-->
+    <!-- </div> -->
+    <!-- </div> -->
+    <!-- </div> -->
+    <!--/.col-->
+    <div class="col-sm-9">
+      <div class="">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-4 mt-4 mb-4">
+              <div class="input-group">
+                <td>
+                  <span class="h4" style="font-size: 28px; margin-left: 2px"
+                    ><b>{{ totalAngularPackages.result[0].name }}</b></span
+                  >
+                </td>
+              </div>
+            </div>
+          </div>
+
+          <!-- ********************** -->
+          <div *ngIf="!totalAngularPackages.result[0].image_4" class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="col" *ngIf="totalAngularPackages.result[0].image_1">
+              <div class="card .bg-secondary">
+                <img
+                  src="{{ totalAngularPackages.result[0].image_1 }}"
+                  width="100"
+                  height="200"
+                  class="card-img-top"
+                  alt="..."
+                />
+              </div>
+            </div>
+            <div class="col" *ngIf="totalAngularPackages.result[0].image_2">
+              <div class="card .bg-secondary">
+                <img
+                  src="{{ totalAngularPackages.result[0].image_2 }}"
+                  width="100"
+                  height="200"
+                  class="card-img-top"
+                  alt="..."
+                />
+              </div>
+            </div>
+            <div class="col" *ngIf="totalAngularPackages.result[0].image_3">
+              <div class="card .bg-secondary">
+                <img
+                  src="{{ totalAngularPackages.result[0].image_3 }}"
+                  width="100"
+                  height="200"
+                  class="card-img-top"
+                  alt="..."
+                />
+              </div>
+            </div>
+          </div>
+          <!-- ********************** -->
+
+          <mdb-carousel [animation]="'slide'"  *ngIf="totalAngularPackages.result[0].image_4">
+            <mdb-carousel-item>
+              <div class="row row-cols-1 row-cols-md-3 g-4" >
+                <div class="col" *ngIf="totalAngularPackages.result[0].image_1">
+                  <div class="card .bg-secondary">
+                    <img
+                      src="{{ totalAngularPackages.result[0].image_1 }}"
+                      width="100"
+                      height="200"
+                      class="card-img-top"
+                      alt="..."
+                    />
+                  </div>
+                </div>
+                <div class="col" *ngIf="totalAngularPackages.result[0].image_2">
+                  <div class="card .bg-secondary">
+                    <img
+                      src="{{ totalAngularPackages.result[0].image_2 }}"
+                      width="100"
+                      height="200"
+                      class="card-img-top"
+                      alt="..."
+                    />
+                  </div>
+                </div>
+                <div class="col" *ngIf="totalAngularPackages.result[0].image_3">
+                  <div class="card .bg-secondary">
+                    <img
+                      src="{{ totalAngularPackages.result[0].image_3 }}"
+                      width="100"
+                      height="200"
+                      class="card-img-top"
+                      alt="..."
+                    />
+                  </div>
+                </div>
+              </div>
+            </mdb-carousel-item>
+            <mdb-carousel-item *ngIf="totalAngularPackages.result[0].image_4">
+              <div class="row row-cols-1 row-cols-md-3 g-4">
+                <div class="col" *ngIf="totalAngularPackages.result[0].image_4">
+                  <div class="card .bg-secondary">
+                    <img
+                      src="{{ totalAngularPackages.result[0].image_4 }}"
+                      width="100"
+                      height="200"
+                      class="card-img-top"
+                      alt="..."
+                    />
+                  </div>
+                </div>
+                <div class="col" *ngIf="totalAngularPackages.result[0].image_5">
+                  <div class="card .bg-secondary">
+                    <img
+                      src="{{ totalAngularPackages.result[0].image_5 }}"
+                      width="100"
+                      height="200"
+                      class="card-img-top"
+                      alt="..."
+                    />
+                  </div>
+                </div>
+                <div class="col" *ngIf="totalAngularPackages.result[0].image_6">
+                  <div class="card .bg-secondary">
+                    <img
+                      src="{{ totalAngularPackages.result[0].image_6 }}"
+                      width="100"
+                      height="200"
+                      class="card-img-top"
+                      alt="..."
+                    />
+                  </div>
+                </div>
+              </div>
+            </mdb-carousel-item>
+            <mdb-carousel-item *ngIf="totalAngularPackages.result[0].image_7">
+              <div class="row row-cols-1 row-cols-md-3 g-4">
+                <div class="col" *ngIf="totalAngularPackages.result[0].image_7">
+                  <div class="card .bg-secondary">
+                    <img
+                      src="{{ totalAngularPackages.result[0].image_7 }}"
+                      width="100"
+                      height="200"
+                      class="card-img-top"
+                      alt="..."
+                    />
+                  </div>
+                </div>
+                <div class="col" *ngIf="totalAngularPackages.result[0].image_8">
+                  <div class="card .bg-secondary">
+                    <img
+                      src="{{ totalAngularPackages.result[0].image_8 }}"
+                      width="100"
+                      height="200"
+                      class="card-img-top"
+                      alt="..."
+                    />
+                  </div>
+                </div>
+                <div class="col" *ngIf="totalAngularPackages.result[0].image_8">
+                  <div class="card .bg-secondary">
+                    <img
+                      src="{{ totalAngularPackages.result[0].image_1 }}"
+                      class="card-img-top"
+                      alt="..."
+                    />
+                  </div>
+                </div>
+              </div>
+            </mdb-carousel-item>
+          </mdb-carousel>
+
+          <div class="row">
+            <div class="col-md-4 mt-4 mb-1">
+              <div class="input-group">
+                <td>
+                  <span class="h5" style="font-size: 25px; margin-left: 2px"
+                    >Shop :
+                    {{ totalAngularPackages.result[0].showroom_name }}</span
+                  >
+                </td>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-8 mb-1">
+              <div class="input-group">
+                <td>
+                  <span class="h4" style="font-size: 25px; margin-left: 2px"
+                    >Address :
+                    {{ totalAngularPackages.result[0].item_address }}</span
+                  >
+                </td>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-8 mb-1">
+              <div class="input-group">
+                <td>
+                  <span class="h4" style="font-size: 25px; margin-left: 2px"
+                    >City : {{ totalAngularPackages.result[0].city_name }}
+                  </span>
+                </td>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-8 mb-1">
+              <div class="input-group">
+                <td>
+                  <a
+                    href="{{ totalAngularPackages.result[0].longitude }}"
+                    target="_blank"
+                  >
+                    <span class="h4" style="font-size: 25px; margin-left: 2px"
+                      >Map Location :
+                      <i tyle="color:green" class="fa fa-map-marker fa-lg"></i
+                    ></span>
+                  </a>
+                </td>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-8 mb-1">
+              <div class="input-group">
+                <td>
+                  <span
+                    class="h4"
+                    style="font-size: 25px; margin-left: 2px; color: #00cc11"
+                    >Price : Rs. {{ totalAngularPackages.result[0].price }}
+                  </span>
+                </td>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-8 mb-1">
+              <div class="input-group">
+                <td>
+                  <span
+                    class="h4"
+                    style="font-size: 25px; margin-left: 2px; color: #cc0000"
+                    >Discount Price : Rs.
+                    {{ totalAngularPackages.result[0].discount_price }}
+                  </span>
+                </td>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-8 mb-1">
+              <div class="input-group">
+                <td>
+                  <span class="h4" style="font-size: 25px; margin-left: 2px"
+                    >Category :
+                    {{ totalAngularPackages.result[0].category_name }}
+                  </span>
+                </td>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-8 mb-1">
+              <div class="input-group">
+                <td>
+                  <span class="h4" style="font-size: 25px; margin-left: 2px"
+                    >Description :
+                    {{ totalAngularPackages.result[0].description }}
+                  </span>
+                </td>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-8 mb-1">
+              <div class="input-group">
+                <td>
+                  <span class="h4" style="font-size: 25px; margin-left: 2px"
+                    >Mobile 1 :
+                    {{ totalAngularPackages.result[0].item_contact1 }}
+                  </span>
+                </td>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-8 mb-1">
+              <div class="input-group">
+                <td>
+                  <span class="h4" style="font-size: 25px; margin-left: 2px"
+                    >Mobile 2 :
+                    {{ totalAngularPackages.result[0].item_contact2 }}
+                  </span>
+                </td>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-8 mb-1">
+              <div class="input-group">
+                <td>
+                  <span class="h4" style="font-size: 25px; margin-left: 2px">
+                    Whatsapp : {{ totalAngularPackages.result[0].whatsapp }}
+                  </span>
+                </td>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-8 mb-1">
+              <div class="input-group">
+                <td>
+                  <span class="h4" style="font-size: 25px; margin-left: 2px">
+                    Facebook : {{ totalAngularPackages.result[0].facebook }}
+                  </span>
+                </td>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-8 mb-1">
+              <div class="input-group">
+                <td>
+                  <span class="h4" style="font-size: 25px; margin-left: 2px"
+                    >Email : {{ totalAngularPackages.result[0].item_email }}
+                  </span>
+                </td>
+              </div>
+            </div>
+          </div>
+
+          <style>
+            .checked {
+              color: orange;
+            }
+          </style>
+
+          <div class="row">
+            <div class="col-md-8 mb-1">
+              <div class="input-group">
+                <td>
+                  <!-- <h4>  Star Rating :</h4> -->
+
+                  <div
+                  style=" margin-left: 5px; margin-top: 15px; margin-bottom: 15px; "
+                    class="row"
+                    *ngIf="totalAngularPackagesRate.rateCount == 0"
+                  >
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                  </div>
+
+                  <div
+                  style=" margin-left: 5px; margin-top: 15px; margin-bottom: 15px; "
+                  class="row"
+                  *ngIf="totalAngularPackagesRate.rateCount == 1"
+                >
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star"></span>
+                  <span class="fa fa-star"></span>
+                  <span class="fa fa-star"></span>
+                  <span class="fa fa-star"></span>
+                </div>
+
+                <div
+                style=" margin-left: 5px; margin-top: 15px; margin-bottom: 15px; "
+                class="row"
+                *ngIf="totalAngularPackagesRate.rateCount == 2"
+              >
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+              </div>
+
+              <div
+              style=" margin-left: 5px; margin-top: 15px; margin-bottom: 15px; "
+              class="row"
+              *ngIf="totalAngularPackagesRate.rateCount == 3"
+            >
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star"></span>
+              <span class="fa fa-star"></span>
+            </div>
+
+                  <div
+                   style=" margin-left: 5px; margin-top: 15px; margin-bottom: 15px; "
+                  class="row"
+                  *ngIf="totalAngularPackagesRate.rateCount === 4"
+                >
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star"></span>
+                </div>
+
+                <div
+                class="row"
+                *ngIf="totalAngularPackagesRate.rateCount == 5"
+              >
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+              </div>
+                  
+                </td>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <!-- <button type="button" class="btn btn-primary px-4" (click)="reportItem()">Report</button> -->
+            <a class="btn" style="color: #ff0000bd" (click)="reportItem()"
+              ><i
+                class="fa fa-eye-slash fa-lg"
+                style="font-size: 46px; margin-right: 13px"
+              ></i>
+              <p style="margin-top: 5px; margin-right: 13px">Report</p></a
+            >
+            <a class="btn" style="color: #ffd900" (click)="likeItem()"
+              ><i
+                class="fa fa-shopping-cart"
+                style="font-size: 46px; margin-right: 13px"
+              ></i>
+              <p style="margin-top: 5px; margin-right: 13px">
+                Add to wishlist
+              </p></a
+            >
+          </div>
+
+          <!-- ********************** -->
+
+          <!--/.row-->
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label for="ccnumber">Comment :</label>
+                <input
+                  [(ngModel)]="itemCardView.comment"
+                  type="text"
+                  class="form-control"
+                  id="ccnumber"
+                  placeholder="Comment"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="card-body">
+            <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+              <button
+                type="button"
+                class="btn btn-block btn-primary"
+                (click)="addComment()"
+              >
+                Add Comment
+              </button>
+            </div>
+          </div>
+          <!--/.row-->
+
+          <!--/.row-->
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label for="ccnumber">Rate :</label>
+                <!-- <input [(ngModel)]="itemCardView.rate" type="text" class="form-control" id="ccnumber" placeholder="Rate"> -->
+
+                <select
+                  [(ngModel)]="itemCardView.rate"
+                  id="select3"
+                  name="select3"
+                  class="form-control form-control-sm"
+                  ng-model="cityList"
+                >
+                  <option value="0">0</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-body">
+            <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+              <button
+                type="button"
+                class="btn btn-block btn-primary"
+                (click)="addRate()"
+              >
+                Add Rate
+              </button>
+            </div>
+          </div>
+          <!--/.row-->
+        </div>
+
+        <label for="ccnumber">Comments :</label>
+
+        <div
+          *ngFor="
+            let a of totalAngularPackagesComment.result;
+            let index = index
+          "
+          class=""
+        >
+          <!-- <a href="http://localhost:4200/#/itemCardView?id={{totalAngularPackagesComment.result[index].id}}"> -->
+          <div
+            class="card .bg-secondary"
+            style="
+              background: #fbf8ff;
+              width: 80%;
+              margin: auto;
+              border-radius: 20px;
+              margin-bottom: 45px;
+            "
+          >
+            <!-- <img src={{totalAngularPackages.result[index].image_1}} class="card-img-top" alt="..." width="100" height="200" style=" border-radius: 15px 15px 0px 0px;"/> -->
+            <div class="ml-2 mt-2">
+              <h4 class="ml-0 mb-1">
+                <b>{{ totalAngularPackagesComment.result[index].user_name }}</b>
+              </h4>
+              <h5 class="mt-1 ml-2 mb-1" style="color: green">
+                <b> {{ totalAngularPackagesComment.result[index].comment }}</b>
+              </h5>
+            </div>
+          </div>
+          <!-- </a> -->
+        </div>
+      </div>
+    </div>
+    <!--/.col-->
+  </div>
+  <!--/.row-->
+
+    <!--/.row-->
+    <div class="row"  *ngIf="showMsg">
+   
+      <div  class="alert alert-success alert-dismissible">
+        <a (click)="closeAlert()"  class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong  >Add Successfully!.</strong>  
+      </div>
+      
+    </div>
+    <!--/.row-->
+
+</div>

@@ -1,0 +1,261 @@
+<div class="row">
+  <div class="col-md-6" style="margin-left: 30px;">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span style=" height:45px; width: 50px; background-color:#C798D8; border-radius: 20px 0px 20px 0px; " class="input-group-text">
+          <i style="margin: auto;" class="fa fa-search"></i>
+        </span>
+      </div>
+      <input style="height:45px; background-color:#EED8F6; border-radius: 0px 20px 20px 20px;" type="text" id="input1-group1" name="input1-group1"
+        class="form-control" placeholder="Item name / Item category">
+      <!-- <button type="button" class="btn btn-block btn-primary"  (click)="doPOST()">Save</button> -->
+      <!-- <a class="nav-link" href="#/addUser">Users</a> -->
+
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-8  mt-4">
+    <div class="mt-4">
+      <h3 class="ml-8" style="font-size: 30px; margin-left: 30px;">
+        <b>Admin Panel - Jobs</b>
+      </h3>
+      <hr class="mt-0" style="height:3px; border-width:0; color:#e6e6e6; background-color:#e6e6e6; margin-left: 30px;">
+    
+      <div class="btn-group mt-8" role="group" aria-label="Button group with nested dropdown">
+        <a class="btn" style="color:black" href="http://localhost:4200/#/offersPanel"> <i  style="font-size: 50px;"></i><p style="margin-top: 5px;">Offers</p></a>
+        <a class="btn" style="color:blue" href="http://localhost:4200/#/jobsPanel"> <i  style="font-size: 50px;"></i><p style="margin-top: 5px;">Jobs</p></a>
+        <a class="btn" style="color:black" href="http://localhost:4200/#/itemsPanel"><i style="font-size: 50px;"></i><p style="margin-top: 5px;">Items</p></a>
+        <a class="btn" style="color:black" href="http://localhost:4200/#/shopsPanel"><i style="font-size: 50px;"></i><p style="margin-top: 5px;">Shops</p></a>
+        <a class="btn" style="color:black" href="http://localhost:4200/#/userPanel"><i style="font-size: 50px;"></i><p style="margin-top: 5px;">Users</p></a>
+        <a class="btn" style="color:black" href="http://localhost:4200/#/reportPanel"><i style="font-size: 50px;"></i><p style="margin-top: 5px;">Reporting</p></a> </div>
+    </div>
+  </div>
+</div>
+
+<div class="animated fadeIn">
+  <div class="row mt-2" style="margin-left: 30px;">
+    <div class="col-sm-3">
+      <div class="card" style="margin-top: 20px; background:#f5e8fa; border-radius: 10px;">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label for="name">
+                  <b>Location</b>
+                </label>
+                <div class="col-md-9">
+                  <select id="select3" [(ngModel)]="search.district_id" name="select3" class="form-control form-control-sm" ng-model="districtList"
+                    (change)="doGETcityListByDistrictId()">
+
+                    <option *ngFor="let i of districtList.result" value={{i.district_id}}>{{i.name}}</option>
+
+                  </select>
+                </div>
+                <div class="col-md-9 mt-2">
+                  <select [(ngModel)]="search.city_id" id="select3" name="select3" class="form-control form-control-sm" ng-model="cityList"
+                    (change)="doPOST()">
+                    <option *ngFor="let i of cityList.result" value={{i.city_id}}>{{i.name}}</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--/.row-->
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label for="ccnumber">
+                  <b>Distance Range</b>
+                </label>
+                <input type="text" class="form-control" id="ccnumber" placeholder="Distance Range">
+
+              </div>
+            </div>
+          </div>
+          <!--/.row-->
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label for="ccnumber">
+                  <b>Map Location</b>
+                </label>
+                <input type="text" class="form-control" id="ccnumber" placeholder="Map Location">
+
+              </div>
+            </div>
+          </div>
+          <!--/.row-->
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label for="ccnumber">
+                  <b>Category</b>
+                </label>
+                <!-- <input type="text" class="form-control" id="ccnumber" placeholder="Category"> -->
+                <div class="col-md-9 mt-2">
+                  <select [(ngModel)]="search.category_id" id="select3" name="select3" class="form-control form-control-sm" ng-model="cityList">
+                    <option *ngFor="let i of categoryList.result" value={{i.city_id}}>{{i.name}}</option>
+                  </select>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <!--/.row-->
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label for="ccnumber">
+                  <b>Price</b>
+                </label>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <input [(ngModel)]="search.price_min" type="text" class="form-control" placeholder="Min" (keyup)="doPOST()">
+                  </div>
+                  <div class="col-md-6">
+                    <input [(ngModel)]="search.price_max" type="text" class="form-control" placeholder="Max" (keyup)="doPOST()">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--/.row-->
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label for="ccnumber">
+                  <b>Date Range</b>
+                </label>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <input [(ngModel)]="search.createDate_min" class="form-control" id="date-input" type="date" name="date-input" placeholder="date"
+                      (change)="doPOST()">
+                  </div>
+                  <div class="col-md-6">
+                    <input [(ngModel)]="search.createDate_max" class="form-control" id="date-input" type="date" name="date-input" placeholder="date"
+                      (change)="doPOST()">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--/.row-->
+        </div>
+      </div>
+    </div>
+    <!--/.col-->
+    <div class="col-sm-9">
+      <div class="">
+        <div class="card-body">
+
+          <!-- ********************** -->
+
+          
+          <table class="table table-bordered table-striped table-sm">
+            <thead>
+              <tr>
+                <th>Job ID</th>
+                <th>Job Name</th>
+                <!-- <th>Image</th> -->
+                <th>Address</th>
+                <!-- <th>Map</th> -->
+                <th>Shop</th>
+                <th>User</th>
+                <th>Date Added</th>
+                <th>Status</th>
+                <th>Go to Card</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+
+
+            <!-- ************************ -->
+      
+                <tbody>
+                  <tr *ngFor="let a of totalAngularPackages.result; let index = index">
+                
+                    <td>{{totalAngularPackages.result[index].id}}</td>
+                    <td>{{totalAngularPackages.result[index].name}}</td>
+                    <!-- <td>{{totalAngularPackages.result[index].image_1}}</td> -->
+                    <td>{{totalAngularPackages.result[index].address}}</td>
+                    <!-- <td>{{totalAngularPackages.result[index].shop_name}}</td> -->
+                    <td>{{totalAngularPackages.result[index].showroom_name}}</td>
+                    <td>{{totalAngularPackages.result[index].user_name}}</td>
+                    <td>{{totalAngularPackages.result[index].create_date}}</td>
+                    <td>
+                      <span
+                        *ngIf="totalAngularPackages.result[index].is_active == 0"
+                        class="badge badge-danger"
+                        >Inactive</span
+                      >
+                      <span
+                        *ngIf="totalAngularPackages.result[index].is_active == 1"
+                        class="badge badge-success"
+                        >Active</span
+                      >
+                    </td>
+                    <td>
+                      <a class="btn" style="color:green" 
+                      href="http://localhost:4200/#/itemCardView?id={{
+                        totalAngularPackages.result[index].id
+                      }}"
+                      > <i class="fa fa-external-link fa-lg" style="font-size: 28px;"></i></a>
+                    </td>
+                    <td>
+
+                      <button
+                      *ngIf="totalAngularPackages.result[index].is_active == 0"
+                      (click)="doActive( totalAngularPackages.result[index].id )"
+                      value="{{ totalAngularPackages.result[index].id }}"
+                        id="myButton"
+                        style="margin-left: 20px; border-radius: 50px; width: 100px"
+                        class="btn btn-primary"
+                      >
+                      Active
+                    </button>
+                      <button
+                      *ngIf="totalAngularPackages.result[index].is_active == 1"
+                      (click)="doInactive( totalAngularPackages.result[index].id )"
+                      value="{{ totalAngularPackages.result[index].id }}"
+                        id="myButton"
+                        style="margin-left: 20px; border-radius: 50px; width: 100px"
+                        class="btn btn-primary"
+                      >
+                        Inactive
+                      </button>
+                    </td>
+                  </tr>
+               
+                </tbody>
+
+            <!-- ************************ -->
+            
+
+          </table>
+
+          <!-- <nav>
+            <ul class="pagination">
+              <li class="page-item"><a class="page-link" href="#">Prev</a></li>
+              <li class="page-item active">
+                <a class="page-link" href="#">1</a>
+              </li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item"><a class="page-link" href="#">4</a></li>
+              <li class="page-item"><a class="page-link" href="#">Next</a></li>
+            </ul>
+          </nav> -->
+       
+
+          <!-- ********************** -->
+
+        </div>
+      </div>
+    </div>
+    <!--/.col-->
+  </div>
+  <!--/.row-->
+
+</div>
