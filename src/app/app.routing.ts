@@ -175,7 +175,12 @@ export const routes: Routes = [
         loadChildren: () => import('./views/shopspanelreport/shopspanelreport.module').then(m => m.ShopsPanelReportModule)
         
       }     
-
+      ,
+      {
+        path: 'profileEdit',
+        loadChildren: () => import('./views/profileedit/profileedit.module').then(m => m.ProfileEditModule)
+        
+      }  
 
     ]
   },
