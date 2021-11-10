@@ -161,7 +161,18 @@ export const routes: Routes = [
       {
         path: 'reportPanel',
         loadChildren: () => import('./views/reportpanel/reportpanel.module').then(m => m.ReportPanelModule)
-      }
+        
+      }      
+      ,
+      {
+        path: 'itemspanelreport',
+        loadChildren: () => import('./views/itemspanelreport/itemspanelreport.module').then(m => m.ItemsPanelReportModule)
+        
+      }     
+      
+      
+
+
     ]
   },
   { path: '**', component: P404Component }
