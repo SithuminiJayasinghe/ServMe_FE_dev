@@ -165,7 +165,7 @@ export const routes: Routes = [
       }      
       ,
       {
-        path: 'itemspanelreport',
+        path: 'itemsPanelReport',
         loadChildren: () => import('./views/itemspanelreport/itemspanelreport.module').then(m => m.ItemsPanelReportModule)
         
       }     
