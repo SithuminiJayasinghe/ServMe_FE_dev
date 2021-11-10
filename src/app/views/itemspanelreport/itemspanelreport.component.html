@@ -53,7 +53,7 @@
         <!-- <a class="btn" style="color:black" href="http://localhost:4200/#/offersPanel"> <i  style="font-size: 50px;"></i><p style="margin-top: 5px;">Offers</p></a> -->
         <!-- <a class="btn" style="color:black" href="http://localhost:4200/#/jobsPanel"> <i  style="font-size: 50px;"></i><p style="margin-top: 5px;">Jobs</p></a> -->
         <a class="btn" style="color:blue" href="http://localhost:4200/#/itemsPanelReport"><i style="font-size: 50px;"></i><p style="margin-top: 5px;">Items - Reports</p></a>
-        <a class="btn" style="color:black" href="http://localhost:4200/#/shopsPanel"><i style="font-size: 50px;"></i><p style="margin-top: 5px;">Shops - Reports</p></a>
+        <a class="btn" style="color:black" href="http://localhost:4200/#/shopsPanelReport"><i style="font-size: 50px;"></i><p style="margin-top: 5px;">Shops - Reports</p></a>
         <!-- <a class="btn" style="color:black" href="http://localhost:4200/#/userPanel"><i style="font-size: 50px;"></i><p style="margin-top: 5px;">Users</p></a>
         <a class="btn" style="color:black" href="http://localhost:4200/#/reportPanel"><i style="font-size: 50px;"></i><p style="margin-top: 5px;">Reporting</p></a> -->
       
@@ -247,8 +247,18 @@
           <!-- ********************** -->
 
           <h3 class="ml-1" style="font-size: 20px; margin-left: 30px">
-            <b>Item Count : - {{ totalAngularPackages.result.length }}</b>
+            <b>Items - Total : - {{ totalAngularPackages.result.length }}</b>
           </h3>
+
+          <h3 class="ml-1" style="font-size: 20px; margin-left: 30px">
+            <b>Items - Active Count : - </b>
+          </h3>
+
+          <h3 class="ml-1" style="font-size: 20px; margin-left: 30px">
+            <b>Items - Inactive Count : - </b>
+          </h3>
+
+
 
           <table class="table table-bordered table-striped table-sm">
             <thead>

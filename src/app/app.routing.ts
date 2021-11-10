@@ -169,8 +169,12 @@ export const routes: Routes = [
         loadChildren: () => import('./views/itemspanelreport/itemspanelreport.module').then(m => m.ItemsPanelReportModule)
         
       }     
-      
-      
+      ,
+      {
+        path: 'shopsPanelReport',
+        loadChildren: () => import('./views/shopspanelreport/shopspanelreport.module').then(m => m.ShopsPanelReportModule)
+        
+      }     
 
 
     ]
