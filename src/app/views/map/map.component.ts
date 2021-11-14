@@ -139,8 +139,8 @@ export class MapComponent implements OnInit, OnDestroy {
     console.log("POST");
     this.http.post("http://localhost:5102/item/get-search",
     {
-      "name":'asd',
-      // "name":sessionStorage.getItem("name"),
+      // "name":'asd',
+      "name":sessionStorage.getItem("name"),
       // "longitude":sessionStorage.getItem("longitude"),
       // "latitude":sessionStorage.getItem("latitude"),
       // "city_id":sessionStorage.getItem("city_id"),
