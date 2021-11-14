@@ -170,6 +170,8 @@ export class ItemsPanelReportComponent implements OnInit, OnDestroy {
         (val) => {
           this.totalAngularPackages = val
             console.log("POST call successful value returned in body", val);
+
+          
         },
         response => {
             console.log("POST call in error", response);
@@ -185,6 +187,8 @@ export class ItemsPanelReportComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
 
+    this.search.activeCount = 0;
+    this.search.inactiveCount = 0;
     this.doGETdistrictList();
     this.doGETcityList();
     this.doGET();
@@ -198,10 +202,28 @@ export class ItemsPanelReportComponent implements OnInit, OnDestroy {
   }
   async doGET() {
     console.log("GET");
-    let url = `http://localhost:5102/item/getInactive`;
-    this.http.get(url).subscribe(res => 
+    let url = `http://localhost:5102/item/getAll`;
+    this.http.get<any>(url).subscribe(res => {
+
+      this.totalAngularPackages = res;
+
+      console.log ("Block statement execution no." + this.totalAngularPackages.result);
+
+      for (var obj of this.totalAngularPackages.result) {
+        console.log ("Block statement execution no." + obj.is_active);
+
+        if(obj.is_active === "1"){
+          this.search.activeCount = this.search.activeCount + 1;
+        }
+        else{
+          this.search.inactiveCount = this.search.inactiveCount + 1;
+        }
+      }
+
+    
+    }
       // console.log(res),
-      this.totalAngularPackages = res
+    
     );
   }
 

@@ -17,6 +17,8 @@ export class Search {
     category_id:string
     item_id:string
     id:string
+    activeCount:number
+    inactiveCount:number
     }
 
  

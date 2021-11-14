@@ -92,6 +92,8 @@ export class ShopsPanelReportComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
 
+    this.search.activeCount = 0;
+    this.search.inactiveCount = 0;
     this.doGETdistrictList();
     this.doGETcityList();
     this.doGET();
@@ -106,9 +108,19 @@ export class ShopsPanelReportComponent implements OnInit, OnDestroy {
   async doGET() {
     console.log("GET");
     let url = `http://localhost:5102/shop/getshopsforadmin`;
-    this.http.get(url).subscribe(res => 
-      // console.log(res),
-      this.totalAngularPackages = res
+    this.http.get<any>(url).subscribe(res => {
+      this.totalAngularPackages = res;
+      for (var obj of this.totalAngularPackages.result) {
+        console.log ("Block statement execution no." + obj.is_active);
+
+        if(obj.is_active === "1"){
+          this.search.activeCount = this.search.activeCount + 1;
+        }
+        else{
+          this.search.inactiveCount = this.search.inactiveCount + 1;
+        }
+    }}
+     
     );
   }
 
