@@ -63,6 +63,7 @@ export class ItemCardViewComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
 
+    this.itemCardView.user_id = sessionStorage.getItem("userId");
     this.activatedRoute.queryParams.subscribe(params => {
       const id = params['id'];
       console.log(id);
@@ -156,7 +157,7 @@ export class ItemCardViewComponent implements OnInit, OnDestroy {
     this.http.post<any>("http://localhost:5102/item/like-item",
     {
       "item_id":this.itemId,
-      "user_id":"1"
+      "user_id":this.itemCardView.user_id,
     }
   )
     .subscribe(
