@@ -181,6 +181,12 @@ export const routes: Routes = [
         loadChildren: () => import('./views/profileedit/profileedit.module').then(m => m.ProfileEditModule)
         
       }  
+      ,
+      {
+        path: 'payment',
+        loadChildren: () => import('./views/payment/payment.module').then(m => m.PaymentModule)
+        
+      } 
 
     ]
   },

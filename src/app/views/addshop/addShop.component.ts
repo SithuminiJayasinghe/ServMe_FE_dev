@@ -150,6 +150,8 @@ export class AddShopComponent implements OnInit, OnDestroy {
                          if(val.success){
                           this.showMsg= true;
                         }
+                        window.open('http://localhost:4200/#/payment', '_blank');
+
         },
         response => {
             console.log("POST call in error", response);
