@@ -193,4 +193,27 @@ export class OffersViewComponent implements OnInit, OnDestroy {
     this.doPOST();
     this.offerView.city_id = '0';
   }
+
+  
+  doPOSTClickAddMapList() {
+ 
+    sessionStorage.setItem( "name",this.offerView.name);
+    sessionStorage.setItem("longitude",this.offerView.longitude);
+    sessionStorage.setItem( "latitude",this.offerView.latitude);
+    sessionStorage.setItem("city_id",this.offerView.city_id);
+    sessionStorage.setItem("price_min",this.offerView.price_min);
+    sessionStorage.setItem("price_max",this.offerView.price_max);
+    sessionStorage.setItem("createDate_min",this.offerView.createDate_min);
+    sessionStorage.setItem("createDate_max",this.offerView.createDate_max);
+    sessionStorage.setItem("category_id",this.offerView.category_id);
+    sessionStorage.setItem( "district_id",this.offerView.district_id);
+
+    window.open('http://localhost:4200/#/map', '_blank');
+    // document.location.href='http://localhost:4200/#/map'
+  }
+
+
+
+
+
 }

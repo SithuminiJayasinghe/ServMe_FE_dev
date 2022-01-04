@@ -132,8 +132,8 @@
             <div class="col-sm-12">
               <div class="form-group">
                 <label for="ccnumber">Map Location</label>
-                <input [(ngModel)]="postJob.longitude" type="text" class="form-control" id="ccnumber" placeholder="URL">
-                <!-- <input [(ngModel)]="postJob.latitude" type="text" class="form-control" id="ccnumber" placeholder="Latitude"> -->
+                <input [(ngModel)]="postJob.longitude" type="text" class="form-control" id="ccnumber" placeholder="Longitude">
+                <input [(ngModel)]="postJob.latitude" type="text" class="form-control" id="ccnumber" placeholder="Latitude">
 
               </div>
             </div>
@@ -286,7 +286,9 @@
               <div>
                 <input style="margin-left: 5px; margin-top: 15px; margin-bottom: 15px;" [(ngModel)]="postJob.image_2" type="file" id="file-input"
                   name="file-input"
-                  (change)="handleFileInput1($event)">
+                  (change)="handlePopup()"
+                  >
+                  <!-- <button type="button" class="btn btn-block btn-primary" (click)="handleFileInput()">SAVE</button> -->
               </div>
             </div>
           </div>
@@ -297,7 +299,7 @@
               <div>
                 <input style="margin-left: 5px; margin-top: 15px; margin-bottom: 15px;" [(ngModel)]="postJob.image_3" type="file" id="file-input"
                   name="file-input"
-                  (change)="handleFileInput2($event)">
+                  (change)="handlePopup()">
               </div>
             </div>
           </div>
@@ -308,7 +310,7 @@
               <div>
                 <input style="margin-left: 5px; margin-top: 15px; margin-bottom: 15px;" [(ngModel)]="postJob.image_4" type="file" id="file-input"
                   name="file-input"
-                  (change)="handleFileInput3($event)">
+                  (change)="handlePopup()">
               </div>
             </div>
           </div>
@@ -322,7 +324,7 @@
               <div>
                 <input style="margin-left: 5px; margin-top: 15px; margin-bottom: 15px;" [(ngModel)]="postJob.image_5" type="file" id="file-input"
                   name="file-input"
-                  (change)="handleFileInput4($event)">
+                  (change)="handlePopup()">
               </div>
             </div>
           </div>
@@ -333,7 +335,7 @@
               <div>
                 <input style="margin-left: 5px; margin-top: 15px; margin-bottom: 15px;" [(ngModel)]="postJob.image_6" type="file" id="file-input"
                   name="file-input"
-                  (change)="handleFileInput5($event)" >
+                  (change)="handlePopup()" >
               </div>
             </div>
           </div>
@@ -344,7 +346,7 @@
               <div>
                 <input style="margin-left: 5px; margin-top: 15px; margin-bottom: 15px;" [(ngModel)]="postJob.image_7" type="file" id="file-input"
                   name="file-input"
-                  (change)="handleFileInput6($event)">
+                  (change)="handlePopup()">
               </div>
             </div>
           </div>
@@ -355,7 +357,7 @@
               <div>
                 <input style="margin-left: 5px; margin-top: 15px; margin-bottom: 15px;" [(ngModel)]="postJob.image_8" type="file" id="file-input"
                   name="file-input"
-                  (change)="handleFileInput7($event)">
+                  (change)="handlePopup()">
               </div>
             </div>
           </div>

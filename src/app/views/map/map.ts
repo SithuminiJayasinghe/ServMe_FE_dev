@@ -9,4 +9,5 @@ export class Map {
   address:string
   contact_number:string
   user_type:string
+  city_id:string
   }

@@ -16,6 +16,7 @@ import { Injectable } from '@angular/core';
 import {Router, ActivatedRoute, Params} from '@angular/router';
 import { ItemCardView } from './itemCardView';
 import { FormsModule } from '@angular/forms';
+import {  latItem, lngItem } from '../../global-variable';
 
 @Injectable()
 export class DataService {
@@ -56,6 +57,8 @@ export class ItemCardViewComponent implements OnInit, OnDestroy {
    itemId = 0;
    itemCardView = new ItemCardView();
    showMsg: boolean = false;
+   latItem = latItem;
+   lngItem = lngItem;
 
    closeAlert() {
     this.showMsg= false;
@@ -86,9 +89,10 @@ export class ItemCardViewComponent implements OnInit, OnDestroy {
   async doGETByItemId(id) {
     console.log("GET");
     let url = `http://localhost:5102/item/getByItemId?id=`+id;
-    this.http.get(url).subscribe(res => 
+    this.http.get(url).subscribe(res => {
       // console.log(res)
-      this.totalAngularPackages = res
+      this.totalAngularPackages = res;
+    }
     );
   }
 

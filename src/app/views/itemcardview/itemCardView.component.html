@@ -355,7 +355,11 @@
               <div class="input-group">
                 <td>
                   <a
-                    href="{{ totalAngularPackages.result[0].longitude }}"
+                    href="http://localhost:4200/#/mapview?lat={{
+                      totalAngularPackages.result[0].latitude
+                    }}&lng={{
+                      totalAngularPackages.result[0].longitude }} &itemName={{
+                        totalAngularPackages.result[0].name }}"
                     target="_blank"
                   >
                     <span class="h4" style="font-size: 25px; margin-left: 2px"
@@ -449,13 +453,19 @@
             </div>
           </div>
 
+
           <div class="row">
             <div class="col-md-8 mb-1">
               <div class="input-group">
                 <td>
-                  <span class="h4" style="font-size: 25px; margin-left: 2px">
+                  <a
+                  href="https://web.whatsapp.com/"
+                  target="_blank"
+                >
+                  <span class="h4" style="font-size: 25px; margin-left: 2px; color:#00cc11" >
                     Whatsapp : {{ totalAngularPackages.result[0].whatsapp }}
                   </span>
+                </a>
                 </td>
               </div>
             </div>
@@ -464,9 +474,14 @@
             <div class="col-md-8 mb-1">
               <div class="input-group">
                 <td>
+                  <a
+                  href="{{ totalAngularPackages.result[0].facebook }}"
+                  target="_blank"
+                >
                   <span class="h4" style="font-size: 25px; margin-left: 2px">
                     Facebook : {{ totalAngularPackages.result[0].facebook }}
                   </span>
+                  </a>>
                 </td>
               </div>
             </div>
@@ -574,22 +589,38 @@
 
           <div class="row">
             <!-- <button type="button" class="btn btn-primary px-4" (click)="reportItem()">Report</button> -->
-            <a class="btn" style="color: #ff0000bd" (click)="reportItem()"
+            <a *ngIf="itemCardView.user_id != 0" class="btn" style="color: #ff0000bd" (click)="reportItem()"
               ><i
                 class="fa fa-eye-slash fa-lg"
                 style="font-size: 46px; margin-right: 13px"
               ></i>
-              <p style="margin-top: 5px; margin-right: 13px">Report</p></a
-            >
-            <a class="btn" style="color: #ffd900" (click)="likeItem()"
+              <p  style="margin-top: 5px; margin-right: 13px">Report</p></a>
+
+              <a *ngIf="itemCardView.user_id == 0" class="btn" style="color: #ff0000bd" href="http://localhost:4200/#/login" >
+                <i
+                class="fa fa-eye-slash fa-lg"
+                style="font-size: 46px; margin-right: 13px"
+              ></i>
+              <p  style="margin-top: 5px; margin-right: 13px">Report</p></a>
+
+            <a *ngIf="itemCardView.user_id != 0" class="btn" style="color: #ffd900" (click)="likeItem()"
               ><i
                 class="fa fa-shopping-cart"
                 style="font-size: 46px; margin-right: 13px"
               ></i>
               <p style="margin-top: 5px; margin-right: 13px">
                 Add to wishlist
-              </p></a
-            >
+              </p></a>
+
+              <a *ngIf="itemCardView.user_id == 0" class="btn" style="color: #ffd900" href="http://localhost:4200/#/login">
+                <i
+                class="fa fa-shopping-cart"
+                style="font-size: 46px; margin-right: 13px"
+              ></i>
+              <p style="margin-top: 5px; margin-right: 13px">
+                Add to wishlist
+              </p></a>
+
           </div>
 
           <!-- ********************** -->
@@ -611,7 +642,7 @@
           </div>
 
           <div class="card-body">
-            <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+            <div *ngIf="itemCardView.user_id != 0" class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
               <button
                 type="button"
                 class="btn btn-block btn-primary"
@@ -620,13 +651,25 @@
                 Add Comment
               </button>
             </div>
+            <div *ngIf="itemCardView.user_id == 0" class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0" >
+              <button
+                type="button"
+                class="btn btn-block btn-primary"
+                onclick="document.location.href='http://localhost:4200/#/login'"
+
+              >
+                Add Comment
+              </button>
+            </div>
+
+
           </div>
           <!--/.row-->
 
           <!--/.row-->
           <div class="row">
             <div class="col-sm-12">
-              <div class="form-group">
+              <div  class="form-group">
                 <label for="ccnumber">Rate :</label>
                 <!-- <input [(ngModel)]="itemCardView.rate" type="text" class="form-control" id="ccnumber" placeholder="Rate"> -->
 
@@ -649,7 +692,7 @@
           </div>
 
           <div class="card-body">
-            <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+            <div *ngIf="itemCardView.user_id != 0" class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
               <button
                 type="button"
                 class="btn btn-block btn-primary"
@@ -658,6 +701,19 @@
                 Add Rate
               </button>
             </div>
+
+            <div *ngIf="itemCardView.user_id == 0" class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+              <button
+                type="button"
+                class="btn btn-block btn-primary"
+                onclick="document.location.href='http://localhost:4200/#/login'"
+              >
+                Add Rate
+              </button>
+            </div>
+
+
+
           </div>
           <!--/.row-->
         </div>

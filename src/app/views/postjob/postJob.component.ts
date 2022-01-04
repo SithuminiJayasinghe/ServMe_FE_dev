@@ -102,6 +102,8 @@ handleFileInput(event) {
     reader.onload = () => {
       this.postJob.image_1 = reader.result as string;
     };
+
+    console.log(this.postJob.image_1);
    
 }
 
@@ -209,8 +211,13 @@ handleFileInput7(event) {
    
 }
 
+  handlePopup(){
+    alert("Please save job details and display image first!")
+  }
 
   doPOST() {
+    alert(Date.now());
+    this.postJob.item_id=Date.now().toString();
     console.log("POST");
     console.log("this.addShop.name - " + this.postJob.name);
     if(this.postJob.discount_price){
@@ -244,6 +251,8 @@ handleFileInput7(event) {
       "email":this.postJob.email,
       "item_contact1":this.postJob.mobile_1,
       "item_contact2":this.postJob.mobile_2,
+
+      "item_id":this.postJob.item_id,
       
       "user_id":"1"
     }
@@ -252,6 +261,8 @@ handleFileInput7(event) {
         (val) => {
             console.log("POST call successful value returned in body", 
                         val);
+
+                        sessionStorage.setItem("item_id", this.postJob.item_id);
 
                         this.postJob.name = "",
                         this.postJob.type = "0",
@@ -286,6 +297,8 @@ handleFileInput7(event) {
                         if(val.success){
                           this.showMsg= true;
                         }
+
+                        document.location.href='http://localhost:4200/#/imageupload';
                         
         },
         response => {
@@ -309,7 +322,7 @@ handleFileInput7(event) {
     this.doGetDistrictList();
     this.doGETcityList();
     this.doGETcategoryList();
-    this.doGETShopByUserId(userId)
+    this.doGETShopByUserId(sessionStorage.getItem("userId"))
     this.postJob.type = '0';
     this.postJob.district_id = '0';
     this.postJob.city_id = '0';

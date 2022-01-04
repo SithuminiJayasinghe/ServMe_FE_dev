@@ -119,7 +119,7 @@
           <!--/.row-->
           <div class="row">
             <div class="col-sm-12">
-              <div class="form-group">
+              <!-- <div class="form-group">
                 <label for="ccnumber">
                   <b>Distance Range</b>
                 </label>
@@ -129,7 +129,7 @@
                   id="ccnumber"
                   placeholder="Distance Range"
                 />
-              </div>
+              </div> -->
             </div>
           </div>
           <!--/.row-->
@@ -139,12 +139,18 @@
                 <label for="ccnumber">
                   <b>Map Location</b>
                 </label>
-                <input
+                <!-- <input
                   type="text"
                   class="form-control"
                   id="ccnumber"
                   placeholder="Map Location"
-                />
+                /> -->
+                <button 
+                (click)="doPOSTClickAddMapList()"
+                id="myButton" style="background-color: #b884ca; border-color: #b884ca; margin-left: 20px; border-radius: 50px; width: 150px;" class="btn btn-primary" >GOTO MAP
+                </button>
+               
+
               </div>
             </div>
           </div>
@@ -313,7 +319,7 @@
             <div class="row" *ngIf="totalAngularPackages.result?.length == 1">
               <div
                 *ngFor="let a of totalAngularPackages.result; let index = index"
-                class=""
+                class="" style="width: 300px;" 
               >
                 <a
                   href="http://localhost:4200/#/itemCardView?id={{
@@ -368,7 +374,7 @@
             <div class="row" *ngIf="totalAngularPackages.result?.length == 2">
               <div
                 *ngFor="let a of totalAngularPackages.result; let index = index"
-                class=""
+                class="" style="width: 300px;"
               >
                 <a
                   href="http://localhost:4200/#/itemCardView?id={{

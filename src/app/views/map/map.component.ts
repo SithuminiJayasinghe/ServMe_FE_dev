@@ -20,7 +20,6 @@ import {ModalDirective} from 'ngx-bootstrap/modal';
 import { AgmCoreModule, MapsAPILoader  } from '@agm/core';
 import {search_word, name, price_min, price_max, createDate_min, createDate_max , category_id, district_id, city_id } from '../../global-variable';
 
-
 @Injectable()
 export class DataService {
   constructor(private httpClient: HttpClient,private apiloader: MapsAPILoader) { }
@@ -68,7 +67,7 @@ export class MapComponent implements OnInit, OnDestroy {
   errorMessage;
   public mapList;
   // Map:Map[];
-  // map = new Map();
+  map = new Map();
 
   title = 'My Location';
   lat = 6.812328;
@@ -137,13 +136,18 @@ export class MapComponent implements OnInit, OnDestroy {
 
   doPOSTGet() {
     console.log("POST");
+    // if(sessionStorage.getItem("city_id")){
+    //   this.map.city_id = sessionStorage.getItem("city_id");
+    // }else{
+
+    // }
     this.http.post("http://localhost:5102/item/get-search",
     {
       // "name":'asd',
       "name":sessionStorage.getItem("name"),
       // "longitude":sessionStorage.getItem("longitude"),
       // "latitude":sessionStorage.getItem("latitude"),
-      // "city_id":sessionStorage.getItem("city_id"),
+      "city_id":sessionStorage.getItem("city_id"),
       // "price_min":sessionStorage.getItem("price_min"),
       // "price_max":sessionStorage.getItem("price_max"),
       // "createDate_min":sessionStorage.getItem("createDate_min"),

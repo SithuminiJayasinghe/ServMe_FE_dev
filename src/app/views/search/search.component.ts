@@ -59,6 +59,10 @@ export class SearchComponent implements OnInit, OnDestroy {
   constructor(private http: HttpClient, private router: Router) {
   }
 
+
+
+
+
   doPOSTClickAddMapList() {
  
     sessionStorage.setItem( "name",this.search.name);

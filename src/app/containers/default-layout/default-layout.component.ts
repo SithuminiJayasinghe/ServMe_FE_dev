@@ -21,7 +21,13 @@ export class DefaultLayoutComponent implements OnInit, OnDestroy{
 
   ngOnInit(): void {
 
-    this.detail.user_id = sessionStorage.getItem("userId");
+    if(sessionStorage.getItem("userId")){
+      this.detail.user_id = sessionStorage.getItem("userId");
+    }else{
+      this.detail.user_id = '0';
+    }
+
+    
 
   }
 

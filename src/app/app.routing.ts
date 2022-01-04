@@ -187,6 +187,18 @@ export const routes: Routes = [
         loadChildren: () => import('./views/payment/payment.module').then(m => m.PaymentModule)
         
       } 
+       , 
+      {
+        path: 'imageupload',
+        loadChildren: () => import('./views/imageupload/imageUpload.module').then(m => m.ImageUploadModule)
+        
+      } 
+      , 
+      {
+        path: 'mapview',
+        loadChildren: () => import('./views/mapview/mapview.module').then(m => m.MapViewModule)
+        
+      } 
 
     ]
   },
